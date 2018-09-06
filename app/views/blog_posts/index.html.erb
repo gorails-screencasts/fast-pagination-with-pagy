@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Blog_posts</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_blog_post_path, class: 'btn btn-primary' do %>
+    Add New Blog post
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+
+
+            <th>Title</th>
+            <th>Body</th>
+
+          <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blog_posts.each do |blog_post| %>
+        <%= content_tag :tr, id: dom_id(blog_post), class: dom_class(blog_post) do %>
+
+
+                      <td><%= blog_post.title %></td>
+                      <td><%= blog_post.body %></td>
+
+
+            <td><%= link_to 'Show', blog_post %></td>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= pagy_nav_bootstrap(@pagy).html_safe %>
+<%= pagy_nav_compact_bootstrap(@pagy).html_safe %>
+<%#== render 'pagy/nav_bootstrap', locals: { pagy: @pagy } %>

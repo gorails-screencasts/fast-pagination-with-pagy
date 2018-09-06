@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to blog_posts_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Blog_posts
+  <% end %>
+  <%= link_to edit_blog_post_path(@blog_post), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show blog_post</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @blog_post.title %></dd>
+
+  <dt>Body:</dt>
+  <dd><%= @blog_post.body %></dd>
+
+</dl>
